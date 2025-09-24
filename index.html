@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabriel García Márquez - Master of Magical Realism</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Variables for Brand Colors */
+        :root {
+            --dk-cyan: #00c7be;
+            --dk-blue: #2ca7e0;
+            --dk-ink: #24292d;
+            --dk-white: #ffffff;
+            --dk-accent: #FFB547;
+            --dk-gray: #f5f5f5;
+            --dk-shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dk-ink);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+        }
+
+        h2 {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            margin-bottom: 1.5rem;
+            color: var(--dk-ink);
+        }
+
+        h3 {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+        }
+
+        p {
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            margin-bottom: 1rem;
+        }
+
+        /* Header Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(36, 41, 45, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dk-cyan);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .logo:hover {
+            color: var(--dk-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--dk-white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--dk-cyan);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--dk-cyan);
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--dk-white);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            animation: fadeIn 1s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--dk-ink) 0%, #3a4147 100%);
+            color: var(--dk-white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(0, 199, 190, 0.05) 10px,
+                rgba(0, 199, 190, 0.05) 20px
+            );
+            animation: movePattern 20s linear infinite;
+        }
+
+        @keyframes movePattern {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-50px, -50px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-portrait {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid var(--dk-cyan);
+            margin: 0 auto 2rem;
+            animation: float 3s ease-in-out infinite;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/0/0f/Gabriel_Garc%C3%ADa_M%C3%A1rquez_%281984%29.jpg') center/cover;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hero h1 {
+            margin-bottom: 1rem;
+            animation: slideInUp 1s ease;
+        }
+
+        .hero .tagline {
+            font-size: 1.2rem;
+            color: var(--dk-cyan);
+            font-weight: 300;
+            animation: slideInUp 1s ease 0.2s both;
+        }
+
+        .hero .dates {
+            margin-top: 1rem;
+            opacity: 0.8;
+            animation: slideInUp 1s ease 0.4s both;
+        }
+
+        /* Timeline Section */
+        .timeline {
+            background: var(--dk-gray);
+            position: relative;
+        }
+
+        .timeline-container {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--dk-cyan);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeInScale 0.6s ease forwards;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            flex: 1;
+            padding: 1.5rem;
+            background: var(--dk-white);
+            border-radius: 10px;
+            box-shadow: 0 5px 20px var(--dk-shadow);
+            margin: 0 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 199, 190, 0.2);
+        }
+
+        .timeline-dot {
+            width: 20px;
+            height: 20px;
+            background: var(--dk-cyan);
+            border-radius: 50%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .timeline-year {
+            color: var(--dk-cyan);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Works Section */
+        .works {
+            background: white;
+        }
+
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .book-card {
+            background: var(--dk-white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px var(--dk-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .book-card:hover {
+            transform: translateY(-10px) rotate(-2deg);
+            box-shadow: 0 15px 40px rgba(0, 199, 190, 0.3);
+        }
+
+        .book-cover {
+            height: 300px;
+            background: linear-gradient(135deg, var(--dk-cyan), var(--dk-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .book-cover::before {
+            content: '📚';
+            font-size: 4rem;
+            opacity: 0.3;
+        }
+
+        .book-info {
+            padding: 1.5rem;
+        }
+
+        .book-title {
+            color: var(--dk-ink);
+            margin-bottom: 0.5rem;
+        }
+
+        .book-year {
+            color: var(--dk-cyan);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        /* Achievements Section with Chart */
+        .achievements {
+            background: var(--dk-gray);
+        }
+
+        .chart-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px var(--dk-shadow);
+            margin-top: 2rem;
+        }
+
+        #achievementsChart {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Quotes Section */
+        .quotes {
+            background: linear-gradient(135deg, var(--dk-ink) 0%, #3a4147 100%);
+            color: var(--dk-white);
+            text-align: center;
+        }
+
+        .quote-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .quote {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            font-style: italic;
+            margin: 2rem 0;
+            opacity: 0;
+            animation: fadeInScale 1s ease forwards;
+            position: relative;
+        }
+
+        .quote::before,
+        .quote::after {
+            content: '"';
+            font-size: 4rem;
+            color: var(--dk-cyan);
+            position: absolute;
+            opacity: 0.3;
+        }
+
+        .quote::before {
+            top: -20px;
+            left: -40px;
+        }
+
+        .quote::after {
+            bottom: -40px;
+            right: -40px;
+        }
+
+        .quote.typing {
+            overflow: hidden;
+            border-right: 3px solid var(--dk-cyan);
+            white-space: nowrap;
+            animation: typing 3s steps(40, end), blink 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink {
+            from, to { border-color: transparent; }
+            50% { border-color: var(--dk-cyan); }
+        }
+
+        /* Legacy Map Section */
+        .legacy {
+            background: white;
+        }
+
+        .map-container {
+            position: relative;
+            background: var(--dk-gray);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-top: 2rem;
+            min-height: 400px;
+        }
+
+        .country-marker {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: var(--dk-cyan);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 199, 190, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(0, 199, 190, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 199, 190, 0); }
+        }
+
+        .country-marker:hover {
+            transform: scale(1.2);
+            background: var(--dk-accent);
+        }
+
+        .country-tooltip {
+            position: absolute;
+            background: var(--dk-ink);
+            color: var(--dk-white);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            z-index: 10;
+        }
+
+        .country-marker:hover .country-tooltip {
+            opacity: 1;
+        }
+
+        #colombia { top: 60%; left: 25%; }
+        #mexico { top: 40%; left: 15%; }
+        #sweden { top: 20%; left: 55%; }
+
+        /* Footer */
+        footer {
+            background: var(--dk-ink);
+            color: var(--dk-white);
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .sources {
+            margin-top: 2rem;
+            opacity: 0.7;
+        }
+
+        .sources a {
+            color: var(--dk-cyan);
+            text-decoration: none;
+            margin: 0 0.5rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--dk-ink);
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .timeline-line {
+                left: 30px;
+            }
+
+            .timeline-item {
+                flex-direction: column !important;
+                margin-left: 50px;
+            }
+
+            .timeline-dot {
+                position: absolute;
+                left: -40px;
+            }
+
+            .quote::before,
+            .quote::after {
+                display: none;
+            }
+
+            .books-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #colombia { top: 50%; left: 20%; }
+            #mexico { top: 30%; left: 10%; }
+            #sweden { top: 20%; left: 60%; }
+        }
+
+        /* Accessibility */
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        *:focus {
+            outline: 2px solid var(--dk-cyan);
+            outline-offset: 2px;
+        }
+
+        /* Loading Animation */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dk-ink);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader-text {
+            color: var(--dk-cyan);
+            font-size: 2rem;
+            font-family: 'Poppins', sans-serif;
+            animation: pulse 1s ease infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-text">Loading Magic...</div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header id="header">
+        <nav>
+            <a href="#home" class="logo">GGM</a>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#timeline" class="nav-link">Timeline</a></li>
+                <li><a href="#works" class="nav-link">Works</a></li>
+                <li><a href="#achievements" class="nav-link">Achievements</a></li>
+                <li><a href="#quotes" class="nav-link">Quotes</a></li>
+                <li><a href="#legacy" class="nav-link">Legacy</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <div class="hero-portrait" role="img" aria-label="Portrait of Gabriel García Márquez"></div>
+                <h1>Gabriel García Márquez</h1>
+                <p class="tagline">Master of Magical Realism</p>
+                <p class="dates">1927 - 2014</p>
+            </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section class="timeline" id="timeline">
+            <h2>Life Journey</h2>
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1927</div>
+                        <h3>Birth in Aracataca</h3>
+                        <p>Born in Aracataca, Colombia, a small town that would inspire the fictional Macondo.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1967</div>
+                        <h3>One Hundred Years of Solitude</h3>
+                        <p>Published his masterpiece that would define magical realism for generations.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1982</div>
+                        <h3>Nobel Prize in Literature</h3>
+                        <p>Awarded the Nobel Prize for his novels and short stories.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1985</div>
+                        <h3>Love in the Time of Cholera</h3>
+                        <p>Published his epic romance novel exploring love across decades.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2014</div>
+                        <h3>Final Chapter</h3>
+                        <p>Passed away in Mexico City, leaving behind an immortal literary legacy.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Works Section -->
+        <section class="works" id="works">
+            <h2>Major Works</h2>
+            <div class="books-grid">
+                <article class="book-card">
+                    <div class="book-cover" role="img" aria-label="One Hundred Years of Solitude book cover"></div>
+                    <div class="book-info">
+                        <h3 class="book-title">One Hundred Years of Solitude</h3>
+                        <p class="book-year">1967</p>
+                        <p>The multi-generational saga of the Buendía family in the mythical town of Macondo.</p>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-cover" role="img" aria-label="Love in the Time of Cholera book cover"></div>
+                    <div class="book-info">
+                        <h3 class="book-title">Love in the Time of Cholera</h3>
+                        <p class="book-year">1985</p>
+                        <p>A beautiful story of unrequited love that spans over fifty years.</p>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-cover" role="img" aria-label="Chronicle of a Death Foretold book cover"></div>
+                    <div class="book-info">
+                        <h3 class="book-title">Chronicle of a Death Foretold</h3>
+                        <p class="book-year">1981</p>
+                        <p>A gripping novella about honor, fate, and a murder everyone knew would happen.</p>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-cover" role="img" aria-label="The Autumn of the Patriarch book cover"></div>
+                    <div class="book-info">
+                        <h3 class="book-title">The Autumn of the Patriarch</h3>
+                        <p class="book-year">1975</p>
+                        <p>A powerful portrait of a Caribbean dictator's fall from power.</p>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-cover" role="img" aria-label="No One Writes to the Colonel book cover"></div>
+                    <div class="book-info">
+                        <h3 class="book-title">No One Writes to the Colonel</h3>
+                        <p class="book-year">1961</p>
+                        <p>A poignant tale of an aging colonel waiting for his pension.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section class="achievements" id="achievements">
+            <h2>Achievements & Impact</h2>
+            <div class="chart-container">
+                <canvas id="achievementsChart" width="800" height="400"></canvas>
+            </div>
+        </section>
+
+        <!-- Quotes Section -->
+        <section class="quotes" id="quotes">
+            <h2>Words of Wisdom</h2>
+            <div class="quote-container">
+                <blockquote class="quote" id="quote1">
+                    "What matters in life is not what happens to you but what you remember and how you remember it."
+                </blockquote>
+                <blockquote class="quote" id="quote2">
+                    "No medicine cures what happiness cannot."
+                </blockquote>
+                <blockquote class="quote" id="quote3">
+                    "It is not true that people stop pursuing dreams because they grow old, they grow old because they stop pursuing dreams."
+                </blockquote>
+            </div>
+        </section>
+
+        <!-- Legacy Map Section -->
+        <section class="legacy" id="legacy">
+            <h2>Global Legacy</h2>
+            <div class="map-container" role="img" aria-label="World map showing García Márquez's legacy locations">
+                <div class="country-marker" id="colombia">
+                    <div class="country-tooltip">Aracataca, Colombia - Birthplace</div>
+                </div>
+                <div class="country-marker" id="mexico">
+                    <div class="country-tooltip">Mexico City - Home for decades</div>
+                </div>
+                <div class="country-marker" id="sweden">
+                    <div class="country-tooltip">Stockholm - Nobel Prize 1982</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Gabriel García Márquez Infographic</p>
+            <div class="sources">
+                <p>Sources:</p>
+                <a href="https://www.nobelprize.org" target="_blank" rel="noopener">Nobel Prize</a>
+                <a href="https://www.britannica.com" target="_blank" rel="noopener">Britannica</a>
+                <a href="https://www.wikimedia.org" target="_blank" rel="noopener">Wikimedia</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for Interactive Features
+        
+        // Loading Screen
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+            }, 1000);
+        });
+
+        // Smooth Scroll Navigation
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+                
+                // Update active link
+                navLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+                
+                // Close mobile menu if open
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+
+        // Update active navigation on scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Header background on scroll
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(36, 41, 45, 0.98)';
+            } else {
+                header.style.background = 'rgba(36, 41, 45, 0.95)';
+            }
+        });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinksContainer = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinksContainer.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+
+        // Timeline Animation on Scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.animationDelay = `${index * 0.1}s`;
+                        entry.target.style.opacity = '1';
+                    }, 100);
+                }
+            });
+        }, observerOptions);
+
+        // Observe timeline items
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            observer.observe(item);
+        });
+
+        // Achievements Chart using Canvas
+        const canvas = document.getElementById('achievementsChart');
+        const ctx = canvas.getContext('2d');
+
+        // Set canvas size for high DPI displays
+        const dpr = window.devicePixelRatio || 1;
+        canvas.width = 800 * dpr;
+        canvas.height = 400 * dpr;
+        ctx.scale(dpr, dpr);
+        canvas.style.width = '800px';
+        canvas.style.height = '400px';
+
+        // Chart Data
+        const chartData = [
+            { label: 'Books Published', value: 25, color: '#00c7be' },
+            { label: 'Languages Translated', value: 46, color: '#2ca7e0' },
+            { label: 'Countries Read In', value: 150, color: '#FFB547' },
+            { label: 'Major Awards', value: 12, color: '#24292d' },
+            { label: 'Film Adaptations', value: 8, color: '#00c7be' }
+        ];
+
+        // Draw Chart Function
+        function drawChart() {
+            // Clear canvas
+            ctx.clearRect(0, 0, 800, 400);
+            
+            // Chart settings
+            const barWidth = 100;
+            const barSpacing = 140;
+            const maxValue = Math.max(...chartData.map(d => d.value));
+            const chartHeight = 250;
+            const startX = 50;
+            const startY = 320;
+            
+            // Draw bars with animation
+            chartData.forEach((data, index) => {
+                const barHeight = (data.value / maxValue) * chartHeight;
+                const x = startX + (index * barSpacing);
+                const y = startY - barHeight;
+                
+                // Animated bar drawing
+                let currentHeight = 0;
+                const animationSpeed = barHeight / 20;
+                
+                function animateBar() {
+                    ctx.clearRect(x, startY - chartHeight - 50, barWidth, chartHeight + 50);
+                    
+                    // Draw bar
+                    ctx.fillStyle = data.color;
+                    ctx.fillRect(x, startY - currentHeight, barWidth, currentHeight);
+                    
+                    // Draw value on top
+                    ctx.fillStyle = '#24292d';
+                    ctx.font = 'bold 18px Poppins';
+                    ctx.textAlign = 'center';
+                    ctx.fillText(data.value, x + barWidth/2, startY - currentHeight - 10);
+                    
+                    // Draw label
+                    ctx.save();
+                    ctx.translate(x + barWidth/2, startY + 20);
+                    ctx.rotate(-Math.PI / 6);
+                    ctx.fillStyle = '#24292d';
+                    ctx.font = '12px Montserrat';
+                    ctx.textAlign = 'right';
+                    ctx.fillText(data.label, 0, 0);
+                    ctx.restore();
+                    
+                    if (currentHeight < barHeight) {
+                        currentHeight += animationSpeed;
+                        requestAnimationFrame(animateBar);
+                    }
+                }
+                
+                setTimeout(() => animateBar(), index * 100);
+            });
+            
+            // Draw title
+            ctx.fillStyle = '#24292d';
+            ctx.font = 'bold 24px Poppins';
+            ctx.textAlign = 'center';
+            ctx.fillText('García Márquez by Numbers', 400, 30);
+            
+            // Draw axis
+            ctx.strokeStyle = '#24292d';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(30, startY);
+            ctx.lineTo(770, startY);
+            ctx.stroke();
+        }
+
+        // Initialize chart when section is visible
+        const chartSection = document.getElementById('achievements');
+        const chartObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    drawChart();
+                    chartObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        chartObserver.observe(chartSection);
+
+        // Quotes Animation - Typewriter Effect
+        const quotes = document.querySelectorAll('.quote');
+        
+        function typeWriter(element, text, speed = 50) {
+            element.textContent = '';
+            element.classList.add('typing');
+            let i = 0;
+            
+            function type() {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                } else {
+                    element.classList.remove('typing');
+                }
+            }
+            type();
+        }
+
+        // Observe quotes for animation
+        const quoteObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    const originalText = entry.target.textContent;
+                    setTimeout(() => {
+                        typeWriter(entry.target, originalText, 30);
+                    }, index * 500);
+                    quoteObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        quotes.forEach(quote => {
+            quoteObserver.observe(quote);
+        });
+
+        // Interactive Map - Enhanced Tooltips
+        const markers = document.querySelectorAll('.country-marker');
+        
+        markers.forEach(marker => {
+            marker.addEventListener('mouseenter', function(e) {
+                // Add ripple effect
+                const ripple = document.createElement('div');
+                ripple.style.position = 'absolute';
+                ripple.style.width = '60px';
+                ripple.style.height = '60px';
+                ripple.style.borderRadius = '50%';
+                ripple.style.background = 'rgba(0, 199, 190, 0.3)';
+                ripple.style.top = '-15px';
+                ripple.style.left = '-15px';
+                ripple.style.animation = 'pulse 1s ease';
+                this.appendChild(ripple);
+                
+                setTimeout(() => ripple.remove(), 1000);
+            });
+            
+            // Click event for mobile
+            marker.addEventListener('click', function(e) {
+                const tooltip = this.querySelector('.country-tooltip');
+                tooltip.style.opacity = tooltip.style.opacity === '1' ? '0' : '1';
+            });
+        });
+
+        // Book Cards Hover Effect
+        const bookCards = document.querySelectorAll('.book-card');
+        
+        bookCards.forEach((card, index) => {
+            card.addEventListener('mouseenter', function() {
+                this.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+
+        // Timeline Items Click to Expand
+        const timelineItems = document.querySelectorAll('.timeline-content');
+        
+        timelineItems.forEach(item => {
+            item.addEventListener('click', function() {
+                // Toggle expanded class
+                this.classList.toggle('expanded');
+                
+                // Add visual feedback
+                this.style.transform = 'scale(1.05)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 200);
+            });
+        });
+
+        // Parallax Effect for Hero Section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            const heroContent = document.querySelector('.hero-content');
+            
+            if (scrolled < window.innerHeight) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+                heroContent.style.opacity = 1 - (scrolled / window.innerHeight);
+            }
+        });
+
+        // Add keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            const sections = Array.from(document.querySelectorAll('section'));
+            const currentSection = sections.find(section => {
+                const rect = section.getBoundingClientRect();
+                return rect.top >= 0 && rect.top < window.innerHeight / 2;
+            });
+            
+            const currentIndex = sections.indexOf(currentSection);
+            
+            if (e.key === 'ArrowDown' && currentIndex < sections.length - 1) {
+                sections[currentIndex + 1].scrollIntoView({ behavior: 'smooth' });
+            } else if (e.key === 'ArrowUp' && currentIndex > 0) {
+                sections[currentIndex - 1].scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+
+        // Add page progress indicator
+        const progressBar = document.createElement('div');
+        progressBar.style.position = 'fixed';
+        progressBar.style.top = '0';
+        progressBar.style.left = '0';
+        progressBar.style.height = '3px';
+        progressBar.style.background = 'linear-gradient(90deg, #00c7be, #2ca7e0)';
+        progressBar.style.zIndex = '10000';
+        progressBar.style.transition = 'width 0.3s ease';
+        document.body.appendChild(progressBar);
+
+        window.addEventListener('scroll', () => {
+            const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = window.scrollY;
+            const progress = (scrolled / windowHeight) * 100;
+            progressBar.style.width = `${progress}%`;
+        });
+
+        // Add smooth reveal animations for all sections
+        const revealElements = document.querySelectorAll('section > *');
+        
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInScale 0.8s ease forwards';
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(element => {
+            element.style.opacity = '0';
+            revealObserver.observe(element);
+        });
+
+        // Interactive Timeline - Add connecting animations
+        const timelineDots = document.querySelectorAll('.timeline-dot');
+        
+        const dotObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'pulse 2s infinite';
+                }
+            });
+        }, { threshold: 1 });
+
+        timelineDots.forEach(dot => {
+            dotObserver.observe(dot);
+        });
+
+        // Add floating animation to book cards on scroll
+        const bookObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.animation = 'float 3s ease-in-out infinite';
+                        entry.target.style.animationDelay = `${index * 0.2}s`;
+                    }, index * 100);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        bookCards.forEach(card => {
+            bookObserver.observe(card);
+        });
+
+        // Enhanced mobile responsiveness
+        function handleMobileView() {
+            const isMobile = window.innerWidth <= 768;
+            
+            if (isMobile) {
+                // Adjust chart for mobile
+                canvas.style.width = '100%';
+                canvas.style.height = 'auto';
+                
+                // Simplify animations for better mobile performance
+                document.querySelectorAll('.book-card').forEach(card => {
+                    card.style.animation = 'none';
+                });
+            }
+        }
+
+        window.addEventListener('resize', handleMobileView);
+        handleMobileView();
+
+        // Add Easter egg - Konami code for magical realism effect
+        const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+        let konamiIndex = 0;
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === konamiCode[konamiIndex]) {
+                konamiIndex++;
+                if (konamiIndex === konamiCode.length) {
+                    activateMagicalRealism();
+                    konamiIndex = 0;
+                }
+            } else {
+                konamiIndex = 0;
+            }
+        });
+
+        function activateMagicalRealism() {
+            document.body.style.animation = 'magicalRealism 3s ease';
+            
+            // Add butterflies
+            for (let i = 0; i < 10; i++) {
+                const butterfly = document.createElement('div');
+                butterfly.innerHTML = '🦋';
+                butterfly.style.position = 'fixed';
+                butterfly.style.fontSize = '2rem';
+                butterfly.style.left = `${Math.random() * 100}%`;
+                butterfly.style.top = `${Math.random() * 100}%`;
+                butterfly.style.animation = `float ${3 + Math.random() * 2}s ease-in-out infinite`;
+                butterfly.style.zIndex = '9999';
+                document.body.appendChild(butterfly);
+                
+                setTimeout(() => butterfly.remove(), 5000);
+            }
+            
+            // Show magical message
+            const message = document.createElement('div');
+            message.textContent = 'Welcome to Macondo!';
+            message.style.position = 'fixed';
+            message.style.top = '50%';
+            message.style.left = '50%';
+            message.style.transform = 'translate(-50%, -50%)';
+            message.style.fontSize = '3rem';
+            message.style.color = '#00c7be';
+            message.style.fontFamily = 'Poppins';
+            message.style.zIndex = '10000';
+            message.style.animation = 'fadeInScale 1s ease';
+            document.body.appendChild(message);
+            
+            setTimeout(() => message.remove(), 3000);
+        }
+
+        // Add CSS animation for magical realism
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes magicalRealism {
+                0%, 100% { filter: hue-rotate(0deg); }
+                50% { filter: hue-rotate(180deg); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Performance optimization - Lazy load images
+        const imagesToLoad = document.querySelectorAll('[data-src]');
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.removeAttribute('data-src');
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+
+        imagesToLoad.forEach(img => imageObserver.observe(img));
+
+        // Console message
+        console.log('%c📚 Welcome to the magical world of Gabriel García Márquez! 📚', 
+                   'color: #00c7be; font-size: 20px; font-weight: bold; padding: 10px;');
+        console.log('%cExplore the life and works of the master of magical realism.', 
+                   'color: #2ca7e0; font-size: 14px;');
+    </script>
+</body>
+</html>
