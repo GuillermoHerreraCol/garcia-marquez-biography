@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabriel García Márquez - Infografía Interactiva</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+    <!-- Vertical Navigation Menu -->
+    <nav class="vertical-nav" id="vertical-nav">
+        <div class="nav-line"></div>
+        <div class="nav-nodes">
+            <button class="nav-node" data-section="intro" aria-label="Ir a Introducción">
+                <span class="node-tooltip">Introducción</span>
+            </button>
+            <button class="nav-node" data-section="biography" aria-label="Ir a Biografía">
+                <span class="node-tooltip">Biografía</span>
+            </button>
+            <button class="nav-node" data-section="works" aria-label="Ir a Obras">
+                <span class="node-tooltip">Obras</span>
+            </button>
+            <button class="nav-node" data-section="achievements" aria-label="Ir a Logros">
+                <span class="node-tooltip">Logros</span>
+            </button>
+            <button class="nav-node" data-section="timeline" aria-label="Ir a Línea de Tiempo">
+                <span class="node-tooltip">Línea de Tiempo</span>
+            </button>
+            <button class="nav-node" data-section="map" aria-label="Ir a Presencia Global">
+                <span class="node-tooltip">Presencia Global</span>
+            </button>
+            <button class="nav-node" data-section="quotes" aria-label="Ir a Citas">
+                <span class="node-tooltip">Citas</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation Toggle -->
+    <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Abrir menú de navegación">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </button>
+
+    <div class="container">
+        <!-- Intro Section -->
+        <section id="intro" class="section">
+            <div class="content">
+                <div class="intro-content">
+                    <div class="intro-text">
+                        <h1 class="main-title">Gabriel García Márquez</h1>
+                        <p class="subtitle">El maestro del realismo mágico</p>
+                        <div class="scroll-indicator">
+                            <span>Desplázate para explorar</span>
+                            <div class="arrow">↓</div>
+                        </div>
+                    </div>
+                    <div class="intro-image">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Gabriel_Garc%C3%ADa_M%C3%A1rquez.jpg" alt="Gabriel García Márquez" class="author-portrait">
+                        <div class="image-caption">Premio Nobel de Literatura 1982</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Biography Section -->
+        <section id="biography" class="section">
+            <div class="content">
+                <h2>Biografía</h2>
+                <div class="bio-content">
+                    <div class="bio-cards">
+                        <div class="bio-card" data-info="birth">
+                            <div class="card-icon">🏠</div>
+                            <h3>Nacimiento</h3>
+                            <p>Nacido en Aracataca, Colombia, el 6 de marzo de 1927</p>
+                            <div class="card-detail">
+                                <strong>Lugar:</strong> Aracataca, Magdalena, Colombia<br>
+                                <strong>Fecha:</strong> 6 de marzo de 1927<br>
+                                <strong>Contexto:</strong> Ciudad costera que inspiró "Cien años de soledad"
+                            </div>
+                        </div>
+                        <div class="bio-card" data-info="career">
+                            <div class="card-icon">✍️</div>
+                            <h3>Carrera Literaria</h3>
+                            <p>Periodista y escritor que revolucionó la literatura latinoamericana</p>
+                            <div class="card-detail">
+                                <strong>Primera novela:</strong> La hojarasca (1955)<br>
+                                <strong>Obra maestra:</strong> Cien años de soledad (1967)<br>
+                                <strong>Estilo:</strong> Realismo mágico
+                            </div>
+                        </div>
+                        <div class="bio-card" data-info="nobel">
+                            <div class="card-icon">🏆</div>
+                            <h3>Premio Nobel</h3>
+                            <p>Primer colombiano y cuarto latinoamericano en ganar el Nobel de Literatura</p>
+                            <div class="card-detail">
+                                <strong>Año:</strong> 1982<br>
+                                <strong>Motivo:</strong> "por sus novelas e historias cortas, en las que lo fantástico y lo real se combinan en un rico mundo de imaginación"<br>
+                                <strong>Edad:</strong> 55 años
+                            </div>
+                        </div>
+                        <div class="bio-card" data-info="legacy">
+                            <div class="card-icon">🌍</div>
+                            <h3>Legado</h3>
+                            <p>Su obra ha sido traducida a más de 40 idiomas y vendido más de 50 millones de ejemplares</p>
+                            <div class="card-detail">
+                                <strong>Idiomas:</strong> 40+<br>
+                                <strong>Copias vendidas:</strong> 50M+<br>
+                                <strong>Influencia:</strong> Boom latinoamericano
+                            </div>
+                        </div>
+                        <div class="bio-card" data-info="style">
+                            <div class="card-icon">🎭</div>
+                            <h3>Estilo Literario</h3>
+                            <p>Pionero del realismo mágico, fusionando realidad y fantasía en narrativas inolvidables</p>
+                            <div class="card-detail">
+                                <strong>Técnica:</strong> Realismo mágico<br>
+                                <strong>Temas:</strong> Amor, soledad, poder, muerte<br>
+                                <strong>Inspiración:</strong> Tradiciones orales colombianas
+                            </div>
+                        </div>
+                        <div class="bio-card" data-info="influence">
+                            <div class="card-icon">📚</div>
+                            <h3>Influencia Mundial</h3>
+                            <p>Inspiró a generaciones de escritores y cambió la percepción de la literatura latinoamericana</p>
+                            <div class="card-detail">
+                                <strong>Boom latinoamericano:</strong> Líder del movimiento<br>
+                                <strong>Premios:</strong> 18 doctorados honoris causa<br>
+                                <strong>Reconocimiento:</strong> Figura cultural global
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bio-stats">
+                        <div class="stat">
+                            <span class="stat-number">87</span>
+                            <span class="stat-label">Años de vida</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">1982</span>
+                            <span class="stat-label">Año del Nobel</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">50M+</span>
+                            <span class="stat-label">Copias vendidas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Works Section -->
+        <section id="works" class="section">
+            <div class="scroll-indicator-section">
+                <div class="scroll-hint">Sigue explorando ↓</div>
+            </div>
+            <div class="content">
+                <h2>Obras Principales</h2>
+                <div class="works-grid">
+                    <div class="work-card">
+                        <h3>Cien años de soledad</h3>
+                        <p>1967</p>
+                        <p>Su obra maestra, considerada una de las mejores novelas del siglo XX.</p>
+                    </div>
+                    <div class="work-card">
+                        <h3>El amor en los tiempos del cólera</h3>
+                        <p>1985</p>
+                        <p>Una historia de amor que atraviesa décadas en un puerto caribeño.</p>
+                    </div>
+                    <div class="work-card">
+                        <h3>Crónica de una muerte anunciada</h3>
+                        <p>1981</p>
+                        <p>Un relato periodístico novelado sobre honor, fatalidad y destino.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section id="achievements" class="section">
+            <div class="scroll-indicator-section">
+                <div class="scroll-hint">Descubre sus logros ↓</div>
+            </div>
+            <div class="content">
+                <h2>Logros</h2>
+                <div class="achievements-content">
+                    <div class="achievement-item">
+                        <h3>Premio Nobel de Literatura</h3>
+                        <p>1982 - "por sus novelas e historias cortas, en las que lo fantástico y lo real se combinan en un rico mundo de imaginación"</p>
+                    </div>
+                    <div class="achievement-item">
+                        <h3>Traducciones</h3>
+                        <p>Más de 40 idiomas alrededor del mundo</p>
+                    </div>
+                    <div class="achievement-item">
+                        <h3>Copias Vendidas</h3>
+                        <p>Más de 50 millones de ejemplares</p>
+                    </div>
+                </div>
+                <div class="charts-container">
+                    <div class="chart" id="awards-chart"></div>
+                    <div class="chart" id="works-chart"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section id="timeline" class="section">
+            <div class="scroll-indicator-section">
+                <div class="scroll-hint">Viaja por su vida ↓</div>
+            </div>
+            <div class="content">
+                <h2>Línea de Tiempo</h2>
+                <div class="timeline-container">
+                    <div class="timeline-line"></div>
+                    <div class="timeline-events">
+                        <div class="timeline-event" data-year="1927">
+                            <div class="event-marker"></div>
+                            <div class="event-content">
+                                <h4>1927</h4>
+                                <p>Nacimiento en Aracataca, Colombia</p>
+                            </div>
+                        </div>
+                        <div class="timeline-event" data-year="1940">
+                            <div class="event-marker"></div>
+                            <div class="event-content">
+                                <h4>1940</h4>
+                                <p>Se muda a Bogotá para estudiar derecho</p>
+                            </div>
+                        </div>
+                        <div class="timeline-event" data-year="1967">
+                            <div class="event-marker"></div>
+                            <div class="event-content">
+                                <h4>1967</h4>
+                                <p>Publica "Cien años de soledad"</p>
+                            </div>
+                        </div>
+                        <div class="timeline-event" data-year="1982">
+                            <div class="event-marker"></div>
+                            <div class="event-content">
+                                <h4>1982</h4>
+                                <p>Recibe el Premio Nobel de Literatura</p>
+                            </div>
+                        </div>
+                        <div class="timeline-event" data-year="2014">
+                            <div class="event-marker"></div>
+                            <div class="event-content">
+                                <h4>2014</h4>
+                                <p>Fallece en Ciudad de México</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map Section -->
+        <section id="map" class="section">
+            <div class="scroll-indicator-section">
+                <div class="scroll-hint">Explora su legado global ↓</div>
+            </div>
+            <div class="content">
+                <h2>Presencia Global</h2>
+                <div class="map-container">
+                    <div id="world-map" class="leaflet-map"></div>
+                    <div class="map-info">
+                        <div class="map-legend">
+                            <h4>Lugares Significativos</h4>
+                            <div class="legend-item">
+                                <div class="legend-marker" style="background: var(--cyan);"></div>
+                                <div class="legend-text">
+                                    <strong>Colombia</strong><br>
+                                    <span>País natal - Aracataca</span>
+                                </div>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-marker" style="background: var(--blue);"></div>
+                                <div class="legend-text">
+                                    <strong>México</strong><br>
+                                    <span>Lugar de residencia y fallecimiento</span>
+                                </div>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-marker" style="background: var(--warm);"></div>
+                                <div class="legend-text">
+                                    <strong>Suecia</strong><br>
+                                    <span>Premio Nobel de Literatura</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="map-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">40+</span>
+                                <span class="stat-desc">Idiomas de traducción</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">50M+</span>
+                                <span class="stat-desc">Copias vendidas</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">18</span>
+                                <span class="stat-desc">Doctorados Honoris Causa</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quotes Section -->
+        <section id="quotes" class="section">
+            <div class="scroll-indicator-section">
+                <div class="scroll-hint">Sus palabras inmortales ↓</div>
+            </div>
+            <div class="content">
+                <h2>Citas Célebres</h2>
+                <div class="quote-container">
+                    <blockquote class="quote" id="quote-1">
+                        "Lo que importa en la vida no es lo que te sucede sino lo que recuerdas y cómo lo recuerdas."
+                    </blockquote>
+                </div>
+                <div class="quote-navigation">
+                    <button class="quote-btn" id="prev-quote">←</button>
+                    <div class="quote-indicators">
+                        <span class="indicator active" data-quote="0"></span>
+                        <span class="indicator" data-quote="1"></span>
+                        <span class="indicator" data-quote="2"></span>
+                        <span class="indicator" data-quote="3"></span>
+                    </div>
+                    <button class="quote-btn" id="next-quote">→</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <h3>Guillermo Herrera</h3>
+                    <p class="footer-subtitle">Desarrollador Web & Diseñador Digital</p>
+                    <p class="footer-description">Infografía interactiva sobre Gabriel García Márquez</p>
+                </div>
+                <div class="footer-tech">
+                    <p class="tech-label">Tecnologías utilizadas:</p>
+                    <div class="tech-stack">
+                        <span class="tech-item">HTML5</span>
+                        <span class="tech-item">CSS3</span>
+                        <span class="tech-item">JavaScript</span>
+                        <span class="tech-item">Leaflet.js</span>
+                        <span class="tech-item">Google Fonts</span>
+                    </div>
+                </div>
+                <div class="footer-meta">
+                    <p>© 2025 · Infografía Digital Interactiva</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
